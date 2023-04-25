@@ -1,0 +1,430 @@
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-style: normal;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #111111;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 500;
+    line-height: normal;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+/* ................
+Reused Class
+................. */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+/* ..............
+Header
+................ */
+
+header :where(nav, .left, .menu ul) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header :where(.center, ul) {
+    flex-direction: column;
+}
+
+header nav {
+    padding: 1.5em 5%;
+    background: var(--bs-light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+header nav a {
+    padding: 0 1em;
+    color: var(--bs-dark);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+nav .menu ul li a:hover {
+    text-decoration: underline;
+}
+
+.logo a {
+    font-size: 24px;
+}
+
+.logo a i.ri-arrow-right-up-line {
+    color: var(--bs-blue);
+}
+
+.navBtn {
+    display: none;
+    border: none;
+    outline: none;
+    background: var(--bs-blue);
+    color: var(--bs-light);
+    border-radius: 6px;
+    height: 40px;
+    width: 140px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+nav .menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--bs-light);
+    padding: 2em 0;
+    z-index: 1000;
+
+    border-radius: 0 0 50% 50%;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform .5s, visibility .5s, border-radius .5s .4s;
+}
+
+nav .menu.active {
+    border-radius: 0 0 0 0;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+nav .menu ul li a {
+    display: block;
+    color: var(--bs-dark);
+    font-size: 20px;
+    padding: .3em 0;
+}
+
+.menuBtn,
+.closeBtn {
+    display: block;
+    font-size: 30px;
+    padding: 0;
+}
+
+.hero {
+    background: var(--bs-dark);
+    color: var(--bs-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.heroInfo {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.heroInfo .shopNow {
+    border: 1px solid #fff;
+    outline: none;
+    background: var(--bs-dark);
+    color: var(--bs-light);
+    border-radius: 6px;
+    height: 40px;
+    width: 140px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.hero .image {
+    width: 45%;
+    height: 500px;
+}
+
+.hero .image img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.fashionInfo {
+    text-align: center;
+    color: var(--bs-dark);
+    margin-top: 40px;
+}
+
+.imageBox .image {
+    /* width: 100%; */
+    height: 600px;
+    overflow: hidden;
+}
+
+.imageBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px 20px;
+}
+
+.imageBox .image img {
+    /* width: 100%; */
+    height: 100%;
+    transition: transform 1s;
+}
+
+.imageBox .image:hover img,
+.box .image:hover img {
+    transform: scale(1.2);
+    scale: 1.1;
+}
+
+.imageFirst h2,
+.imageSecond h2 {
+    text-align: center;
+    font-size: 2em;
+    padding: 20px 0;
+}
+
+.imageFirst h2 {
+    color: var(--bs-blue);
+}
+
+.staffsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 10px;
+}
+
+.staffsContainer .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 30px;
+}
+
+.box .image {
+    height: 400px;
+    overflow: hidden;
+}
+
+.box .image img {
+    height: 100%;
+    transition: transform 1s;
+}
+
+.box .imageInfo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.vedio {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/asset\ 10.jpeg);
+    height: 100vh;
+    margin: 20px 0;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-light);
+    gap: 30px;
+}
+
+.vedio .vedioInfo {
+    text-align: center;
+}
+
+.shopNow {
+    display: inline-block;
+    color: var(--bs-light);
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.latestNews h1 {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.newsContain {
+    margin: 30px 0;
+}
+
+.newsContain,
+.newsContain .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsContain .wrapper {
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.newsContain .Image {
+    height: 250px;
+}
+
+.newsContain .box {
+    height: 350px;
+}
+
+.newsContain .box .Image img {
+    height: 100%;
+    /* width: 100%; */
+}
+
+.newsImageInfo {
+    max-width: 400px;
+}
+
+.newsImageInfo h3 {
+    font-size: 25px;
+}
+
+@media (min-width: 992px) {
+    .menuBtn {
+        display: none;
+    }
+
+    header :where(.center, ul) {
+        flex-direction: row;
+    }
+
+    .navBtn {
+        display: block;
+    }
+
+    nav .menu {
+        position: relative;
+        top: 0;
+        padding: 0;
+        max-width: max-content;
+        background: transparent;
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    nav .menu ul li a {
+        padding: 0 1em;
+    }
+
+    .staffsContainer .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .hero .image img {
+        display: block;
+    }
+
+    .imageBox {
+        flex-direction: row;
+    }
+
+    .vedio {
+        flex-direction: row;
+    }
+
+    .vedio .vedioInfo {
+        text-align: left;
+    }
+
+    .newsContain .wrapper {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 500px) {
+    .imageBox .image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .imageFirst h2,
+    .imageSecond h2 {
+        font-size: 1.5em;
+    }
+
+    .staffsContainer .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
